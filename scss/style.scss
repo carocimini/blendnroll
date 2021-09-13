@@ -97,40 +97,37 @@
         }
     }
 }
-.heather_nav{
-    width: 100%;
-    ul{
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        justify-content: space-evenly;
-        li{
-            background-color: $cool-green;
-            width: 100%;
-            a{
-                @extend .link;
-                font-family: 'Work Sans', sans-serif;
-                text-transform: uppercase;
-                color: white;
-                display: block;
-                font-size: 120%;
-                padding-top: 2%;
-                padding-bottom: 2%;
-                text-align: center;
-            }
-            a:hover{
-                color: $cool-pink;
-            }
-        }
-        li:hover{
-            background-color:#43bc90;
-        }
+.navbar{
+    background-color: $cool-green !important;
+}
+
+.navbar-nav {
+    width: 100% !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-evenly !important;
+    .nav-link {
+        color: white !important;
+        text-transform: uppercase;
+        font-size: 120%;
+        @extend .work;
     }
+    .nav-link:hover{
+        color: $cool-pink !important;
+    }
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+        color: $cool-pink !important;
+    }
+}
+.navbar-toggler-icon{
+    background-color: $cool-green !important;
+}
+.navbar-collapse{
+    width: 100% !important;
+    justify-content: flex-start !important;
 }
 .slogan{
     color: $cool-green;
@@ -282,11 +279,11 @@
             li{
                 a{
                     @extend .link;
-                    font-size: 60%;
+                    font-size: 70%;
                     color: white;
                     text-decoration: none;
                     img{
-                        width: 10%;
+                        width: 15%;
                     }
                 }
                 a:hover{
@@ -301,7 +298,7 @@
         h6{
             @extend .robot;
             padding: 1%;
-            font-size: 60%;
+            font-size: 70%;
             color: white;
             font-weight: 100;
             text-align: center;
@@ -316,7 +313,20 @@
         background-color: $cool-green;
         animation-name: aparecer;
         article{
+            margin-top: 5%;
             margin-left: 5%;
+        }
+        .dropdown{
+            margin-top: 5%;
+            button{
+                width: 70%;
+                font-size: 110%;
+                background-color: $cool-pink !important;
+                border: gray !important;
+            }
+            .dropdown-menu{
+                font-size: 100%;
+            }
         }
     }
     section{
@@ -481,7 +491,7 @@
     width: 80%;
     margin-left: 10%;
     padding-top: 25%;
-    border-radius: 10%;
+    border-radius: 5%;
 }  
 .grid{
     display: grid;
@@ -508,7 +518,8 @@
     grid-area: box7;
 }
 
-@media only screen and (max-width: 320px) {
+
+@media only screen and (max-width: 395px) {
     .heather_boxLogo{
         padding: 2%;
         h2{
@@ -533,6 +544,9 @@
         margin-top: 2%;
         margin-bottom: 5%;
     }
+    .navbar-nav{
+        flex-direction: column !important;
+    }
     .div-botonTienda{
         button{
             margin-top: 0%;
@@ -540,6 +554,9 @@
             font-size: 40%;
             
         }
+    }
+    .nav-link{
+        font-size: 90% !important;
     }
     
     .slogan{
@@ -633,8 +650,361 @@
             font-size: 2%;
         }
     }
+    .nombrePagina{
+        padding-bottom: 2%;
+        h1{
+            font-size: 150%;
+        }
+    }
+    .mainProductos{
+        aside{
+            width: 35%;
+            padding: 0%;
+            article{
+                width: 90%;
+                margin-top: 10%;
+                margin-left: 5%;
+                h4{
+                    font-size: 80%;
+                }
+            }
+            .dropdown{
+                margin-top: 5%;
+                button{
+                    width: 80%;
+                    font-size: 70%;
+                    background-color: $cool-pink !important;
+                    border: gray !important;
+                }
+                .dropdown-menu{
+                    font-size: 70%;
+                }
+            }
+        }
+        section{
+            article{
+                width: 40%;
+                a{
+                    h3{
+                        font-size: 60%;
+                        text-align: left;
+                        margin: 2%;
+                    }
+                }
+                h4{
+                    font-size: 70%;
+                }
+            }
+        }
+    }
+    .mainRutas{
+        article{
+            width: 50%;
+        }
+        h4{
+            font-size: 120%;
+        }
+    }
+    .seccionContacto{
+        h2{
+            font-size: 120%;
+        }
+        p{
+            font-size: 100%;
+        }
+    }
+    .asistenciaCliente{
+        h2{
+            font-size: 130%;
+        }
+        a{
+            font-size: 110%;
+            img{
+                width: 10%;
+            }
+        }
+    }
+    .seccionForm-contacto{
+        height: 95%;
+        margin: 5%;
+        margin-bottom: 5%;
+        h3{
+            font-size: 120%;
+        }
+        form{
+            label{
+                font-size: 90%;
+            }
+            input{
+                font-size: 90%;
+            }
+        }
+        div{
+            h5{
+                font-size: small;
+            }
+            select{
+                font-size: 70%;
+                option{
+                    font-size: 70%;
+                }
+            }
+        }
+        .botonEnviar{
+            font-size: 70%;
+        }
+        .botonReset{
+            font-size: 70%;
+        }
+    }
+    .imagenContacto{
+        display: none;
+    }
 }
-@media only screen and (max-width: 768px) and (min-width: 321px) {
+@media only screen and (max-width: 640px) and (min-width: 396px) {
+    .heather_boxLogo{
+        padding: 2%;
+        h2{
+            font-size: 120%;
+        }
+        a img{
+            width: 40%;  
+        }                
+    }
+    .heather_search{
+        padding-top: 2%;
+        padding-bottom: 2%;
+        input{
+            font-size: 90%;
+        }
+        button{
+            width: 25%;
+            font-size: 90%;
+        }
+    }
+    .heather_icons{
+        margin-top: 2%;
+        margin-bottom: 5%;
+    }
+    .div-botonTienda{
+        button{
+            margin-top: 0%;
+            width: 30%;
+            font-size: 65%;
+        }
+        margin-bottom: 2%;
+    }
+    .navbar-nav{
+        flex-direction: column !important;
+    }
+    .nav-link{
+        font-size: 120% !important;
+    }
+    
+    .slogan{
+        font-size: 120%;
+        margin-bottom: 0%;
+    }
+    .grid{
+        grid-template-columns: 50% auto;
+        grid-template-rows: 50px 260px 260px 130px;
+        row-gap: 0rem;
+        grid-template-areas: 
+        "box5 box5"
+        "box4 box6"
+        "box7 box7";
+    }
+    .div-valorAgregado{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 10%;
+        section{
+            width: 80%;
+            height: 25%;
+            align-items: stretch;
+            margin-bottom: 2%;
+            img{
+                width: 80%;
+            }
+            article{
+                padding: 0%;
+                width: 900%;
+                h4{
+                    font-size: 70%;
+                    width: 100%;
+                    margin-bottom: 0%;
+                }
+                p{
+                    margin-top: 0%;
+                    font-size: 55%;
+                }
+            }
+        }
+    }
+    .div-nosotros{
+        padding: 0%;
+        margin: 0%;
+        section{
+            height: 100%;
+            margin-top: 0%;
+            margin-bottom: 10%;
+            flex-direction: column;
+            article{
+                align-items: flex-start;
+                width: 90%;
+                height: 100%;
+                h3{
+                    margin-top: 2%;
+                    font-size: 75%;
+                }
+                p{
+                    font-size: 45%;
+                    margin-bottom: 0%;
+                }
+            }
+            .videoNosotros{
+                width: 90%;
+                height: 80%;
+                margin-bottom: 5%;
+            }
+        }
+    }
+    .piedePagina{
+        section{
+            width: 20%;
+            h6{
+                font-size: 50%;
+            }
+            ul{
+                width: 100%;
+                li{
+                    a{
+                        font-size: 50%;
+                        img{
+                            width: 15%;
+                        }
+                    }
+                }
+            }
+        }
+        .copyright{
+            font-size: 2%;
+        }
+    }
+    .nombrePagina{
+        padding-bottom: 2%;
+        h1{
+            font-size: 230%;
+        }
+    }
+    .mainProductos{
+        aside{
+            width: 40%;
+            padding: 0%;
+            article{
+                width: 90%;
+                margin-top: 10%;
+                margin-left: 5%;
+                h4{
+                    font-size: 110%;
+                }
+            }
+            .dropdown{
+                margin-top: 5%;
+                button{
+                    width: 85%;
+                    font-size: 90%;
+                    background-color: $cool-pink !important;
+                    border: gray !important;
+                }
+                .dropdown-menu{
+                    font-size: 70%;
+                }
+            }
+        }
+        section{
+            article{
+                width: 30%;
+                a{
+                    h3{
+                        font-size: 90%;
+                        text-align: left;
+                        margin: 2%;
+                    }
+                }
+                h4{
+                    font-size: 100%;
+                }
+            }
+        }
+    }
+    .mainRutas{
+        article{
+            width: 60%;
+        }
+        h4{
+            font-size: 130%;
+        }
+    }
+    .seccionContacto{
+        h2{
+            font-size: 120%;
+        }
+        p{
+            font-size: 100%;
+        }
+    }
+    .asistenciaCliente{
+        h2{
+            font-size: 120%;
+        }
+        a{
+            font-size: 110%;
+            img{
+                width: 10%;
+            }
+        }
+    }
+    .seccionForm-contacto{
+        height: 95%;
+        margin: 2%;
+        margin-bottom: 5%;
+        margin-left: 5%;
+        h3{
+            font-size: 110%;
+        }
+        form{
+            label{
+                font-size: 90%;
+            }
+            input{
+                font-size: 90%;
+            }
+        }
+        div{
+            h5{
+                font-size: small;
+            }
+            select{
+                font-size: 70%;
+                option{
+                    font-size: 60%;
+                }
+            }
+        }
+        .botonEnviar{
+            font-size: 70%;
+        }
+        .botonReset{
+            font-size: 70%;
+        }
+    }
+    .imagenContacto{
+        display: none;
+    }
+}
+@media only screen and (max-width: 767px) and (min-width: 641px) {
     .grid{
         grid-template-columns: 50% auto;
         grid-template-rows: 100px 75px 380px 130px;
@@ -666,6 +1036,9 @@
         margin-top: 2%;
         margin-bottom: 5%;
         margin-left: 20%;
+    }
+    .navbar-nav{
+        flex-direction: column !important;
     }
     .div-botonTienda{
         button{
@@ -734,4 +1107,342 @@
             font-size: 1%;
         }
     }    
+    .nombrePagina{
+        padding-bottom: 2%;
+        h1{
+            font-size: 230%;
+        }
+    }
+    .mainProductos{
+        aside{
+            width: 40%;
+            padding: 0%;
+            article{
+                width: 90%;
+                margin-top: 10%;
+                margin-left: 5%;
+                h4{
+                    font-size: 110%;
+                }
+            }
+            .dropdown{
+                margin-top: 5%;
+                button{
+                    width: 85%;
+                    font-size: 90%;
+                    background-color: $cool-pink !important;
+                    border: gray !important;
+                }
+                .dropdown-menu{
+                    font-size: 70%;
+                }
+            }
+        }
+        section{
+            article{
+                width: 30%;
+                a{
+                    h3{
+                        font-size: 90%;
+                        text-align: left;
+                        margin: 2%;
+                    }
+                }
+                h4{
+                    font-size: 100%;
+                }
+            }
+        }
+    }
+    .mainRutas{
+        article{
+            width: 50%;
+        }
+        h4{
+            font-size: 120%;
+        }
+    }
+    .seccionContacto{
+        h2{
+            font-size: 130%;
+        }
+        p{
+            font-size: 120%;
+        }
+    }
+    .asistenciaCliente{
+        h2{
+            font-size: 130%;
+        }
+        a{
+            font-size: 120%;
+            img{
+                width: 10%;
+            }
+        }
+    }
+    .seccionForm-contacto{
+        height: 95%;
+        margin: 2%;
+        margin-bottom: 4%;
+        margin-left: 5%;
+        h3{
+            font-size: 110%;
+        }
+        form{
+            label{
+                font-size: 90%;
+            }
+            input{
+                font-size: 90%;
+            }
+        }
+        div{
+            h5{
+                font-size: small;
+            }
+            select{
+                font-size: 70%;
+                option{
+                    font-size: 60%;
+                }
+            }
+        }
+        .botonEnviar{
+            font-size: 80%;
+        }
+        .botonReset{
+            font-size: 80%;
+        }
+    }
+    .imagenContacto{
+        display: none;
+    }
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+    .grid{
+        grid-template-columns: 50% auto;
+        grid-template-rows: 100px 75px 380px 130px;
+        row-gap: 0rem;
+    }
+    .heather_boxLogo{
+        width: 80%;
+        padding: 2%;
+        margin-left: 0%;
+        h2{
+            font-size: 100%;
+        }
+        a img{
+            width: 40%;  
+        }                
+    }
+    .heather_search{
+        width: 130%;
+        padding-top: 20%;
+        padding-bottom: 2%;
+        input{
+            width: 65%;
+            font-size: 90%;
+        }
+        button{
+            width: 25%;
+            font-size: 90%;
+        }
+    }
+    .heather_icons{
+        width: 100%;
+        margin-top: 23%;
+        margin-bottom: 5%;
+        margin-left: 10%;
+        a{
+            width: 15%;
+        }
+    }
+    .div-botonTienda{
+        button{
+            margin-top: 5%;
+            width: 20%;
+            font-size: 70%;
+            
+        }
+    }
+
+    .slogan{
+        font-size: 140%;
+        margin-bottom: 0%;
+    }
+    .valorAgregado{
+        width: 30%;
+        height: 110%;
+        img{
+            margin-left: 15%;
+            width: 70%;
+        }
+        article{
+            width: 400%;
+            h4{
+                font-size: 95%;
+            }
+            p{
+                font-size: 80%;
+            }
+        }
+    }
+    .div-nosotros{
+        section{
+            height: 95%;
+            
+            article{
+                
+                margin-top: 0%;
+                width: 50%;
+                h3{
+                    font-size: 140%; 
+                }
+                p{
+                    font-size: 90%;  
+                }
+            }
+            .videoNosotros{
+                width: 45%;
+                height: 60%;
+                margin-top: 5%;
+                margin-bottom: 0%;
+            }
+        }
+    }
+    .piedePagina{
+        section{
+            width: 20%;
+            h6{
+                font-size: 80%;
+            }
+            ul{
+                width: 100%;
+                li{
+                    a{
+                        font-size: 70%;
+                        img{
+                            width: 10%;
+                        }
+                    }
+                }
+            }
+        }
+        .copyright{
+            font-size: 1%;
+        }
+    }  
+    .nombrePagina{
+        padding-bottom: 2%;
+        h1{
+            font-size: 230%;
+        }
+    }
+    .mainProductos{
+        aside{
+            width: 40%;
+            padding: 0%;
+            article{
+                width: 90%;
+                margin-top: 10%;
+                margin-left: 5%;
+                h4{
+                    font-size: 130%;
+                }
+            }
+            .dropdown{
+                margin-top: 5%;
+                button{
+                    width: 75%;
+                    font-size: 110%;
+                    background-color: $cool-pink !important;
+                    border: gray !important;
+                }
+                .dropdown-menu{
+                    font-size: 100%;
+                }
+            }
+        }
+        section{
+            article{
+                width: 25%;
+                a{
+                    h3{
+                        font-size: 100%;
+                        text-align: left;
+                        margin: 2%;
+                    }
+                }
+                h4{
+                    font-size: 110%;
+                }
+            }
+        }
+    }  
+    .mainRutas{
+        article{
+            width: 120%;
+        }
+        h4{
+            font-size: 130%;
+        }
+    }
+    .seccionContacto{
+        h2{
+            font-size: 130%;
+        }
+        p{
+            font-size: 120%;
+        }
+    }
+    .asistenciaCliente{
+        h2{
+            font-size: 140%;
+        }
+        a{
+            font-size: 130%;
+            img{
+                width: 10%;
+            }
+        }
+    }
+    .seccionForm-contacto{
+        width: 100%;
+        height: 95%;
+        margin: 5%;
+        margin-bottom: 7%;
+        margin-left: 5%;
+        h3{
+            font-size: 110%;
+        }
+        form{
+            label{
+                font-size: 90%;
+            }
+            input{
+                font-size: 90%;
+            }
+        }
+        div{
+            h5{
+                font-size: small;
+            }
+            select{
+                font-size: 70%;
+                option{
+                    font-size: 60%;
+                }
+            }
+        }
+        .botonEnviar{
+            font-size: 80%;
+        }
+        .botonReset{
+            font-size: 80%;
+        }
+    }
+    .imagenContacto{
+        margin-top: 20%;
+    }
 }

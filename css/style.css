@@ -1,7 +1,7 @@
 .curs, .heather_boxLogo h2 {
   font-family: 'Nothing You Could Do', cursive; }
 
-.work, .valorAgregado article h4, .div-botonTienda button, .div-nosotros section article h3, .piedePagina section h6 {
+.work, .navbar-nav .nav-link, .valorAgregado article h4, .div-botonTienda button, .div-nosotros section article h3, .piedePagina section h6 {
   font-family: 'Work Sans', sans-serif; }
 
 .robot, .valorAgregado, .div-nosotros section article p, .piedePagina section ul, .piedePagina .boxCopyright h6 {
@@ -40,10 +40,10 @@ footer {
   100% {
     opacity: 1; } }
 
-.link, .heather_nav ul li a, .div-botonTienda button a, .piedePagina section ul li a, .mainProductos section article a, .mainRutas article a, .asistenciaCliente a {
+.link, .div-botonTienda button a, .piedePagina section ul li a, .mainProductos section article a, .mainRutas article a, .asistenciaCliente a {
   text-decoration: none; }
 
-.link:hover, .heather_nav ul li a:hover, .div-botonTienda button a:hover, .piedePagina section ul li a:hover, .mainProductos section article a:hover, .mainRutas article a:hover, .asistenciaCliente a:hover {
+.link:hover, .div-botonTienda button a:hover, .piedePagina section ul li a:hover, .mainProductos section article a:hover, .mainRutas article a:hover, .asistenciaCliente a:hover {
   text-decoration: none; }
 
 .heather_boxLogo {
@@ -104,34 +104,32 @@ footer {
       border: 1px solid #E72E91;
       transform: scale(1.5, 1.5); }
 
-.heather_nav {
-  width: 100%; }
-  .heather_nav ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    justify-content: space-evenly; }
-    .heather_nav ul li {
-      background-color: #4BD1A0;
-      width: 100%; }
-      .heather_nav ul li a {
-        font-family: 'Work Sans', sans-serif;
-        text-transform: uppercase;
-        color: white;
-        display: block;
-        font-size: 120%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        text-align: center; }
-      .heather_nav ul li a:hover {
-        color: #E72E91; }
-    .heather_nav ul li:hover {
-      background-color: #43bc90; }
+.navbar {
+  background-color: #4BD1A0 !important; }
+
+.navbar-nav {
+  width: 100% !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-evenly !important; }
+  .navbar-nav .nav-link {
+    color: white !important;
+    text-transform: uppercase;
+    font-size: 120%; }
+  .navbar-nav .nav-link:hover {
+    color: #E72E91 !important; }
+  .navbar-nav .show > .nav-link,
+  .navbar-nav .active > .nav-link,
+  .navbar-nav .nav-link.show,
+  .navbar-nav .nav-link.active {
+    color: #E72E91 !important; }
+
+.navbar-toggler-icon {
+  background-color: #4BD1A0 !important; }
+
+.navbar-collapse {
+  width: 100% !important;
+  justify-content: flex-start !important; }
 
 .slogan {
   color: #4BD1A0;
@@ -257,18 +255,18 @@ footer {
       list-style: none;
       text-align: left; }
       .piedePagina section ul li a {
-        font-size: 60%;
+        font-size: 70%;
         color: white;
         text-decoration: none; }
         .piedePagina section ul li a img {
-          width: 10%; }
+          width: 15%; }
       .piedePagina section ul li a:hover {
         color: #4BD1A0; }
   .piedePagina .boxCopyright {
     width: 100%; }
     .piedePagina .boxCopyright h6 {
       padding: 1%;
-      font-size: 60%;
+      font-size: 70%;
       color: white;
       font-weight: 100;
       text-align: center; }
@@ -281,7 +279,17 @@ footer {
     background-color: #4BD1A0;
     animation-name: aparecer; }
     .mainProductos aside article {
+      margin-top: 5%;
       margin-left: 5%; }
+    .mainProductos aside .dropdown {
+      margin-top: 5%; }
+      .mainProductos aside .dropdown button {
+        width: 70%;
+        font-size: 110%;
+        background-color: #E72E91 !important;
+        border: gray !important; }
+      .mainProductos aside .dropdown .dropdown-menu {
+        font-size: 100%; }
   .mainProductos section {
     display: flex;
     flex-wrap: wrap;
@@ -403,7 +411,7 @@ footer {
   width: 80%;
   margin-left: 10%;
   padding-top: 25%;
-  border-radius: 10%; }
+  border-radius: 5%; }
 
 .grid {
   display: grid;
@@ -424,7 +432,7 @@ footer {
 .box7 {
   grid-area: box7; }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 395px) {
   .heather_boxLogo {
     padding: 2%; }
     .heather_boxLogo h2 {
@@ -442,10 +450,14 @@ footer {
   .heather_icons {
     margin-top: 2%;
     margin-bottom: 5%; }
+  .navbar-nav {
+    flex-direction: column !important; }
   .div-botonTienda button {
     margin-top: 0%;
     width: 30%;
     font-size: 40%; }
+  .nav-link {
+    font-size: 90% !important; }
   .slogan {
     font-size: 100%;
     margin-bottom: 0%; }
@@ -509,9 +521,235 @@ footer {
         .piedePagina section ul li a img {
           width: 15%; }
   .piedePagina .copyright {
-    font-size: 2%; } }
+    font-size: 2%; }
+  .nombrePagina {
+    padding-bottom: 2%; }
+    .nombrePagina h1 {
+      font-size: 150%; }
+  .mainProductos aside {
+    width: 35%;
+    padding: 0%; }
+    .mainProductos aside article {
+      width: 90%;
+      margin-top: 10%;
+      margin-left: 5%; }
+      .mainProductos aside article h4 {
+        font-size: 80%; }
+    .mainProductos aside .dropdown {
+      margin-top: 5%; }
+      .mainProductos aside .dropdown button {
+        width: 80%;
+        font-size: 70%;
+        background-color: #E72E91 !important;
+        border: gray !important; }
+      .mainProductos aside .dropdown .dropdown-menu {
+        font-size: 70%; }
+  .mainProductos section article {
+    width: 40%; }
+    .mainProductos section article a h3 {
+      font-size: 60%;
+      text-align: left;
+      margin: 2%; }
+    .mainProductos section article h4 {
+      font-size: 70%; }
+  .mainRutas article {
+    width: 50%; }
+  .mainRutas h4 {
+    font-size: 120%; }
+  .seccionContacto h2 {
+    font-size: 120%; }
+  .seccionContacto p {
+    font-size: 100%; }
+  .asistenciaCliente h2 {
+    font-size: 130%; }
+  .asistenciaCliente a {
+    font-size: 110%; }
+    .asistenciaCliente a img {
+      width: 10%; }
+  .seccionForm-contacto {
+    height: 95%;
+    margin: 5%;
+    margin-bottom: 5%; }
+    .seccionForm-contacto h3 {
+      font-size: 120%; }
+    .seccionForm-contacto form label {
+      font-size: 90%; }
+    .seccionForm-contacto form input {
+      font-size: 90%; }
+    .seccionForm-contacto div h5 {
+      font-size: small; }
+    .seccionForm-contacto div select {
+      font-size: 70%; }
+      .seccionForm-contacto div select option {
+        font-size: 70%; }
+    .seccionForm-contacto .botonEnviar {
+      font-size: 70%; }
+    .seccionForm-contacto .botonReset {
+      font-size: 70%; }
+  .imagenContacto {
+    display: none; } }
 
-@media only screen and (max-width: 768px) and (min-width: 321px) {
+@media only screen and (max-width: 640px) and (min-width: 396px) {
+  .heather_boxLogo {
+    padding: 2%; }
+    .heather_boxLogo h2 {
+      font-size: 120%; }
+    .heather_boxLogo a img {
+      width: 40%; }
+  .heather_search {
+    padding-top: 2%;
+    padding-bottom: 2%; }
+    .heather_search input {
+      font-size: 90%; }
+    .heather_search button {
+      width: 25%;
+      font-size: 90%; }
+  .heather_icons {
+    margin-top: 2%;
+    margin-bottom: 5%; }
+  .div-botonTienda {
+    margin-bottom: 2%; }
+    .div-botonTienda button {
+      margin-top: 0%;
+      width: 30%;
+      font-size: 65%; }
+  .navbar-nav {
+    flex-direction: column !important; }
+  .nav-link {
+    font-size: 120% !important; }
+  .slogan {
+    font-size: 120%;
+    margin-bottom: 0%; }
+  .grid {
+    grid-template-columns: 50% auto;
+    grid-template-rows: 50px 260px 260px 130px;
+    row-gap: 0rem;
+    grid-template-areas: "box5 box5" "box4 box6" "box7 box7"; }
+  .div-valorAgregado {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10%; }
+    .div-valorAgregado section {
+      width: 80%;
+      height: 25%;
+      align-items: stretch;
+      margin-bottom: 2%; }
+      .div-valorAgregado section img {
+        width: 80%; }
+      .div-valorAgregado section article {
+        padding: 0%;
+        width: 900%; }
+        .div-valorAgregado section article h4 {
+          font-size: 70%;
+          width: 100%;
+          margin-bottom: 0%; }
+        .div-valorAgregado section article p {
+          margin-top: 0%;
+          font-size: 55%; }
+  .div-nosotros {
+    padding: 0%;
+    margin: 0%; }
+    .div-nosotros section {
+      height: 100%;
+      margin-top: 0%;
+      margin-bottom: 10%;
+      flex-direction: column; }
+      .div-nosotros section article {
+        align-items: flex-start;
+        width: 90%;
+        height: 100%; }
+        .div-nosotros section article h3 {
+          margin-top: 2%;
+          font-size: 75%; }
+        .div-nosotros section article p {
+          font-size: 45%;
+          margin-bottom: 0%; }
+      .div-nosotros section .videoNosotros {
+        width: 90%;
+        height: 80%;
+        margin-bottom: 5%; }
+  .piedePagina section {
+    width: 20%; }
+    .piedePagina section h6 {
+      font-size: 50%; }
+    .piedePagina section ul {
+      width: 100%; }
+      .piedePagina section ul li a {
+        font-size: 50%; }
+        .piedePagina section ul li a img {
+          width: 15%; }
+  .piedePagina .copyright {
+    font-size: 2%; }
+  .nombrePagina {
+    padding-bottom: 2%; }
+    .nombrePagina h1 {
+      font-size: 230%; }
+  .mainProductos aside {
+    width: 40%;
+    padding: 0%; }
+    .mainProductos aside article {
+      width: 90%;
+      margin-top: 10%;
+      margin-left: 5%; }
+      .mainProductos aside article h4 {
+        font-size: 110%; }
+    .mainProductos aside .dropdown {
+      margin-top: 5%; }
+      .mainProductos aside .dropdown button {
+        width: 85%;
+        font-size: 90%;
+        background-color: #E72E91 !important;
+        border: gray !important; }
+      .mainProductos aside .dropdown .dropdown-menu {
+        font-size: 70%; }
+  .mainProductos section article {
+    width: 30%; }
+    .mainProductos section article a h3 {
+      font-size: 90%;
+      text-align: left;
+      margin: 2%; }
+    .mainProductos section article h4 {
+      font-size: 100%; }
+  .mainRutas article {
+    width: 60%; }
+  .mainRutas h4 {
+    font-size: 130%; }
+  .seccionContacto h2 {
+    font-size: 120%; }
+  .seccionContacto p {
+    font-size: 100%; }
+  .asistenciaCliente h2 {
+    font-size: 120%; }
+  .asistenciaCliente a {
+    font-size: 110%; }
+    .asistenciaCliente a img {
+      width: 10%; }
+  .seccionForm-contacto {
+    height: 95%;
+    margin: 2%;
+    margin-bottom: 5%;
+    margin-left: 5%; }
+    .seccionForm-contacto h3 {
+      font-size: 110%; }
+    .seccionForm-contacto form label {
+      font-size: 90%; }
+    .seccionForm-contacto form input {
+      font-size: 90%; }
+    .seccionForm-contacto div h5 {
+      font-size: small; }
+    .seccionForm-contacto div select {
+      font-size: 70%; }
+      .seccionForm-contacto div select option {
+        font-size: 60%; }
+    .seccionForm-contacto .botonEnviar {
+      font-size: 70%; }
+    .seccionForm-contacto .botonReset {
+      font-size: 70%; }
+  .imagenContacto {
+    display: none; } }
+
+@media only screen and (max-width: 767px) and (min-width: 641px) {
   .grid {
     grid-template-columns: 50% auto;
     grid-template-rows: 100px 75px 380px 130px;
@@ -536,6 +774,8 @@ footer {
     margin-top: 2%;
     margin-bottom: 5%;
     margin-left: 20%; }
+  .navbar-nav {
+    flex-direction: column !important; }
   .div-botonTienda button {
     margin-top: 5%;
     width: 20%;
@@ -576,4 +816,215 @@ footer {
         .piedePagina section ul li a img {
           width: 10%; }
   .piedePagina .copyright {
-    font-size: 1%; } }
+    font-size: 1%; }
+  .nombrePagina {
+    padding-bottom: 2%; }
+    .nombrePagina h1 {
+      font-size: 230%; }
+  .mainProductos aside {
+    width: 40%;
+    padding: 0%; }
+    .mainProductos aside article {
+      width: 90%;
+      margin-top: 10%;
+      margin-left: 5%; }
+      .mainProductos aside article h4 {
+        font-size: 110%; }
+    .mainProductos aside .dropdown {
+      margin-top: 5%; }
+      .mainProductos aside .dropdown button {
+        width: 85%;
+        font-size: 90%;
+        background-color: #E72E91 !important;
+        border: gray !important; }
+      .mainProductos aside .dropdown .dropdown-menu {
+        font-size: 70%; }
+  .mainProductos section article {
+    width: 30%; }
+    .mainProductos section article a h3 {
+      font-size: 90%;
+      text-align: left;
+      margin: 2%; }
+    .mainProductos section article h4 {
+      font-size: 100%; }
+  .mainRutas article {
+    width: 50%; }
+  .mainRutas h4 {
+    font-size: 120%; }
+  .seccionContacto h2 {
+    font-size: 130%; }
+  .seccionContacto p {
+    font-size: 120%; }
+  .asistenciaCliente h2 {
+    font-size: 130%; }
+  .asistenciaCliente a {
+    font-size: 120%; }
+    .asistenciaCliente a img {
+      width: 10%; }
+  .seccionForm-contacto {
+    height: 95%;
+    margin: 2%;
+    margin-bottom: 4%;
+    margin-left: 5%; }
+    .seccionForm-contacto h3 {
+      font-size: 110%; }
+    .seccionForm-contacto form label {
+      font-size: 90%; }
+    .seccionForm-contacto form input {
+      font-size: 90%; }
+    .seccionForm-contacto div h5 {
+      font-size: small; }
+    .seccionForm-contacto div select {
+      font-size: 70%; }
+      .seccionForm-contacto div select option {
+        font-size: 60%; }
+    .seccionForm-contacto .botonEnviar {
+      font-size: 80%; }
+    .seccionForm-contacto .botonReset {
+      font-size: 80%; }
+  .imagenContacto {
+    display: none; } }
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+  .grid {
+    grid-template-columns: 50% auto;
+    grid-template-rows: 100px 75px 380px 130px;
+    row-gap: 0rem; }
+  .heather_boxLogo {
+    width: 80%;
+    padding: 2%;
+    margin-left: 0%; }
+    .heather_boxLogo h2 {
+      font-size: 100%; }
+    .heather_boxLogo a img {
+      width: 40%; }
+  .heather_search {
+    width: 130%;
+    padding-top: 20%;
+    padding-bottom: 2%; }
+    .heather_search input {
+      width: 65%;
+      font-size: 90%; }
+    .heather_search button {
+      width: 25%;
+      font-size: 90%; }
+  .heather_icons {
+    width: 100%;
+    margin-top: 23%;
+    margin-bottom: 5%;
+    margin-left: 10%; }
+    .heather_icons a {
+      width: 15%; }
+  .div-botonTienda button {
+    margin-top: 5%;
+    width: 20%;
+    font-size: 70%; }
+  .slogan {
+    font-size: 140%;
+    margin-bottom: 0%; }
+  .valorAgregado {
+    width: 30%;
+    height: 110%; }
+    .valorAgregado img {
+      margin-left: 15%;
+      width: 70%; }
+    .valorAgregado article {
+      width: 400%; }
+      .valorAgregado article h4 {
+        font-size: 95%; }
+      .valorAgregado article p {
+        font-size: 80%; }
+  .div-nosotros section {
+    height: 95%; }
+    .div-nosotros section article {
+      margin-top: 0%;
+      width: 50%; }
+      .div-nosotros section article h3 {
+        font-size: 140%; }
+      .div-nosotros section article p {
+        font-size: 90%; }
+    .div-nosotros section .videoNosotros {
+      width: 45%;
+      height: 60%;
+      margin-top: 5%;
+      margin-bottom: 0%; }
+  .piedePagina section {
+    width: 20%; }
+    .piedePagina section h6 {
+      font-size: 80%; }
+    .piedePagina section ul {
+      width: 100%; }
+      .piedePagina section ul li a {
+        font-size: 70%; }
+        .piedePagina section ul li a img {
+          width: 10%; }
+  .piedePagina .copyright {
+    font-size: 1%; }
+  .nombrePagina {
+    padding-bottom: 2%; }
+    .nombrePagina h1 {
+      font-size: 230%; }
+  .mainProductos aside {
+    width: 40%;
+    padding: 0%; }
+    .mainProductos aside article {
+      width: 90%;
+      margin-top: 10%;
+      margin-left: 5%; }
+      .mainProductos aside article h4 {
+        font-size: 130%; }
+    .mainProductos aside .dropdown {
+      margin-top: 5%; }
+      .mainProductos aside .dropdown button {
+        width: 75%;
+        font-size: 110%;
+        background-color: #E72E91 !important;
+        border: gray !important; }
+      .mainProductos aside .dropdown .dropdown-menu {
+        font-size: 100%; }
+  .mainProductos section article {
+    width: 25%; }
+    .mainProductos section article a h3 {
+      font-size: 100%;
+      text-align: left;
+      margin: 2%; }
+    .mainProductos section article h4 {
+      font-size: 110%; }
+  .mainRutas article {
+    width: 120%; }
+  .mainRutas h4 {
+    font-size: 130%; }
+  .seccionContacto h2 {
+    font-size: 130%; }
+  .seccionContacto p {
+    font-size: 120%; }
+  .asistenciaCliente h2 {
+    font-size: 140%; }
+  .asistenciaCliente a {
+    font-size: 130%; }
+    .asistenciaCliente a img {
+      width: 10%; }
+  .seccionForm-contacto {
+    width: 100%;
+    height: 95%;
+    margin: 5%;
+    margin-bottom: 7%;
+    margin-left: 5%; }
+    .seccionForm-contacto h3 {
+      font-size: 110%; }
+    .seccionForm-contacto form label {
+      font-size: 90%; }
+    .seccionForm-contacto form input {
+      font-size: 90%; }
+    .seccionForm-contacto div h5 {
+      font-size: small; }
+    .seccionForm-contacto div select {
+      font-size: 70%; }
+      .seccionForm-contacto div select option {
+        font-size: 60%; }
+    .seccionForm-contacto .botonEnviar {
+      font-size: 80%; }
+    .seccionForm-contacto .botonReset {
+      font-size: 80%; }
+  .imagenContacto {
+    margin-top: 20%; } }
