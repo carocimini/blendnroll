@@ -117,17 +117,17 @@
                         <form class="robot" action="codigo.php" method="POST"> 
                             <label for="name" >Nombre Completo:</label>               
                             <br>
-                            <input type="text" name="name" placeholder="Escribe tu nombre..." required>
+                            <input type="text" id="name" name="name" placeholder="Escribe tu nombre..." required>
                             <br>
                             <br>
                             <label for="mail">Email:</label>
                             <br>
-                            <input type="email" name="mail" placeholder="Escribe tu email..." required>
+                            <input type="email" id="mail" name="mail" placeholder="Escribe tu email..." required>
                             <br>
                             <br>
                             <label for="celu">Celular:</label>
                             <br>
-                            <input type="number" name="celu" placeholder="Escribe tu celular..." required>
+                            <input type="number" id="celu" name="celu" placeholder="Escribe tu celular..." required>
                             <br><br>
                             <div>
                                 <h5>¿En que estas interesado?</h5>
@@ -139,13 +139,13 @@
                                 </select>
                             </div>
                             <br>
-                            <textarea name="comentario" id="comentario" placeholder="Escribe tu consulta" required></textarea>
+                            <textarea name="comentario" id="comentario" placeholder="Escribe tu consulta"></textarea>
                             <div class="terminos">
                                 <label  for="acepta">Acepta Terminos y Condiciones</label>
                                 <input type="checkbox" name="acepta" required>
                             </div>
                             <br>
-                            <input class="botonEnviar work" type="submit" value="Enviar"> 
+                            <input class="botonEnviar work" type="submit" onclick="obtenerDatos()" value="Enviar"> 
                             <input class="botonReset work" type="reset" value="Borrar contenido">   
                         </form>
                     </section>
@@ -225,6 +225,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="js/contacto.js"></script>
 </body>
 </html>

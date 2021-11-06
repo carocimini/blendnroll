@@ -1,5 +1,6 @@
 class Producto{
-    constructor (nombre, rubro, precio, peso, tamaño, marca, sabor, stock, cantidadComprar, precioVenta){
+    constructor (id, nombre, rubro, precio, peso, tamaño, marca, sabor, stock, cantidadComprar, precioVenta){
+        this.id = id;
         this.nombre = nombre;
         this.rubro = rubro;
         this.precio = precio;
@@ -11,6 +12,7 @@ class Producto{
         this.cantidadComprar = cantidadComprar;
         this.precioVenta = precioVenta;
     }
+    
     iva(){
         this.precio = this.precio * 1.21;
     }
@@ -25,14 +27,41 @@ class Producto{
         this.cantidadComprar = 0;
         this.precioVenta = 0;
     }
-
 }
-const producto1 = new Producto("Tabaco Flandria Vainilla x 30gr", "Tabaco", 450, "0.03 kg", "14 x 7 x 2 cm", "Flandria", "Vainilla", 10, 0, 0);
+const producto1 = new Producto(id=1,nombre="Tabaco Flandria Vainilla x 30gr", rubro="Tabaco", precio=450, stock=10, 0, 0);
+const producto2 = new Producto(id=2,nombre="Tabaco Flandria Silver x 30gr", rubro="Tabaco", precio=450, stock=10, 0, 0);
+const producto3 = new Producto(id=3,nombre="Tabaco Flandria ECO x 30gr", rubro="Tabaco", precio=450, stock=10, 0, 0);
+const productos = [producto1, producto2, producto3]
 
-console.log(producto1);
+function listarProductos(){
+    for(const producto of productos){
+        console.log("ID: " + producto.id +" "+ producto.nombre);
+    }
+}
+function elegirProducto(){
+    var productoElegido = prompt("Ingresa el N° de ID del producto que deseas: ");
+    alert("El producto elegido es: " + productos[productoElegido].nombre);    
+}
 
-producto1.iva();
-producto1.venta();
-producto1.resetVentaFinalizada();
+listarProductos();
+elegirProducto();
 
-console.log(producto1);
+do{
+    producto1.iva();
+    producto1.venta();
+    producto1.resetVentaFinalizada();
+    console.log(producto1);
+}while(productoElegido == 1)
+do{
+    producto2.iva();
+    producto2.venta();
+    producto2.resetVentaFinalizada();
+    console.log(producto2);
+}while(productoElegido == 2)
+do{
+    producto3.iva();
+    producto3.venta();
+    producto3.resetVentaFinalizada();
+    console.log(producto3);
+}while(productoElegido == 3)
+
