@@ -13,4 +13,9 @@ function obtenerDatos(){
     arrayMails.push(mail);
     console.log ("Cantidad de Mails: " + arrayMails.length);
     console.log ("Todos los mails: " + arrayMails.join("\n"));
+    
 }
+
+
+
+
