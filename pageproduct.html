@@ -93,9 +93,62 @@
             </section> 
         </div>
         <div class="container-fluid">
-            <br>
-            <br>
-            <br>
+            <section class="producto work">
+                <div class="displayfloat">
+                    <img class="imagenProd" src="imagenes/img-tabacos/Flandria Vainilla x 30gr.png" alt="Imagen del Tabaco Flandria Vainilla x 30gr">
+                </div>
+                    
+                <article class="detalleProd displayheather">
+                    <h2 class="tituloProducto">Tabaco Flandria Vainilla x 30gr</h2>
+                    <br>
+                    <ul class="listaProd robot">
+                        <li>Tabaco Natural</li>
+                        <li>Sabor Vainilla</li>
+                        <li>Contiene 30gr</li>
+                    </ul>
+                    <br>
+                    <h3 class="precioProducto">Precio: $450</h3>
+                    <br>
+                    <form action="codigo.php" method="POST">
+                        <input class="inputCantidad" type="number" name="cantidad" placeholder="Indica cantidad" required>
+                        <button class="botonComprar work" type="submit">Comprar</button>
+                    </form>
+                </article>
+                <article class="caracteristicas work displayheather">
+                    <h3 class="enc-caract">Características</h3>
+                    <br>
+                    <!--Me gustaria saber como hacer para que los encabezados en negrita esten en las filas y no en las columnas-->
+                    <table class="tablaProd robot" border="1px">
+                        <thead>
+                            <tr>
+                                <th>Marca</th>
+                                <th>Sabor</th>
+                                <th>Tipo</th>
+                                <th>Envase</th>
+                                <th>Origen</th>
+                                <th>Dimensiones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Flandria</td>
+                                <td>Vainilla</td>
+                                <td>Para Armar</td>
+                                <td>30 gr</td>
+                                <td>Bélgica</td>
+                                <td>2cm x 7cm x 14cm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+                <article class="descripcion work displayheather">
+                    <h3 class="enc-descrip">Descripción</h3>
+                    <br>
+                    <p class="parrafo-descrip robot">Tabaco Flandria de Vainilla para armar cigarrillos, de origen belga y vienen en paquetes de 30 Grs. 
+                    Saborizados sutilmente con una agradable gusto a vainilla, es uno de los tabacos preferidos de los fumadores casuales.
+                    </p>
+                </article>
+            </section>
         </div>
 
         <div class="box7">
@@ -165,6 +218,6 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>    
-    <script src="js/product.js"></script>    
+      
 </body>
 </html>
