@@ -1,5 +1,5 @@
 const arrayMails = [];
-const arrayContactos = [];
+const arrayContactos = JSON.parse(localStorage.getItem("listaContactos"));
 
 let boton = document.getElementById("btnEnviar");
 boton.addEventListener("click", enviarConsulta);
