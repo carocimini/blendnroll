@@ -34,6 +34,7 @@ function enviarConsulta(){
     const contacto0 = new Contactos(id= i+1, nombre, email, celular);
     arrayContactos.push(contacto0);
     arrayMails.push(email);
+    const guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
     guardarLocal("listaContactos", JSON.stringify(arrayContactos));
     alert(nombre + " gracias por tu consutla, te estaremos respondiendo a la brevedad.");
 
