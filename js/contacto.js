@@ -1,8 +1,7 @@
 const arrayMails = [];
 const arrayContactos = JSON.parse(localStorage.getItem("listaContactos"));
 
-let boton = document.getElementById("btnEnviar");
-boton.addEventListener("click", enviarConsulta);
+$("#btnEnviar").on("click", enviarConsulta);
 class Contactos{
     constructor(id, name, mail, celu){
         this.id= id;
@@ -26,10 +25,10 @@ function consultarMails(){
 function enviarConsulta(){
 
     let i = arrayContactos.length;
-    var nombre = document.getElementById("name").value;
-    var email = document.getElementById("mail").value;
-    var celular = document.getElementById("celu").value;
-    var comentario = document.getElementById("comentario").value;
+    var nombre = $("#name").value;
+    var email = $("#mail").value;
+    var celular = $("#celu").value;
+    var comentario = $("#comentario").value;
 
     const contacto0 = new Contactos(id= i+1, nombre, email, celular);
     arrayContactos.push(contacto0);
