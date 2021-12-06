@@ -25,17 +25,30 @@ class ProductoComprado{
         this.precio = precio;
     }
 }
+/*Esto a cuntinuación reemplaza a lo que esta comentado debajo*/
+var arrayProductos =[];
 
-
-const producto1 = new Producto(id=1,nombre="Tabaco Flandria Vainilla x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Vainilla", 10, imagen="imagenes/img-tabacos/Flandria Vainilla x 30gr.png");
+const URLJSON = "/blendnroll/js/datos.json";
+$.getJSON(URLJSON, function(respuesta, estado){
+    if(estado === "success"){
+        alert("Entro bien");
+        let misDatos = respuesta;
+        for(const dato of misDatos){
+            const producto = new Producto(id=`${dato.id}`,nombre=`${dato.nombre}`, categoria=`${dato.categoria}`, precio=`${dato.precio}`, peso=`${dato.peso}`, tamaño=`${dato.tamaño}`, marca=`${dato.marca}`, sabor=`${dato.sabor}`, stock=`${dato.stock}`, imagen=`imagenes/img-tabacos/${dato.imagen}`);
+            arrayProductos.push(producto);
+        }
+    }
+});
+/*Esto que esta debajo lo estoy tratando de reemplazar por Ajax*/
+/* const producto1 = new Producto(id=1,nombre="Tabaco Flandria Vainilla x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Vainilla", 10, imagen="imagenes/img-tabacos/Flandria Vainilla x 30gr.png");
 const producto2 = new Producto(id=2,nombre="Tabaco Flandria Silver x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Silver", 10, imagen="imagenes/img-tabacos/Flandria Silver x 30gr.png");
 const producto3 = new Producto(id=3,nombre="Tabaco Flandria ECO x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Eco", 10, imagen="imagenes/img-tabacos/Flandria Eco x 30gr.png");
 var arrayProductos = [producto1, producto2, producto3];
 const guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
-guardarLocal("listaProductos", JSON.stringify(arrayProductos));
-$("#filtros").append(`<button id='btnTerminar'>Finalizar</button>`);
-
+guardarLocal("listaProductos", JSON.stringify(arrayProductos)); */
+$(`#filtros`).append(`<button id='btnCarrito' class="btn btn-dark">Ver Carrito</button><article id="mensajeCarrito" style="color:white;background-color: black"></article><br><br><button id='btnTerminar' class="btn btn-dark">Finalizar</button><article id="mensajeCompra" style="color:white;background-color: black"></article>`);
 $(`#btnTerminar`).click(finalizarCompra);
+$(`#btnCarrito`).click(verCarrito);
 
 function imprimirProductos(){
     let contador = arrayProductos.length;
@@ -73,33 +86,105 @@ console.table(arrayProductos);
 let carrito = [];
 let productoElegido;
 let cantidadElegida;
+let precioTotal;
 
-let productosCarrito = "Vas a llevar: ";
-let precioCarrito = 0;
+let iCarrito = 0;
+let iCompra = 0;
+let precioCarrito;
 let cantidadProducto = 0;
-
+let msjCarrito;
+let msjCompra;
+let msjCarritoVacio;
+let msjCompraVacia;
 
     function agregarCarrito(cantidadElegida, idRef){
-            
-        let precioTotal = cantidadElegida * arrayProductos[idRef-1].precio;
-        const comprado = new ProductoComprado(carrito.length+1, arrayProductos[idRef-1].nombre, cantidadElegida, precioTotal);
-        carrito.push(comprado);
-            
-        alert(`Agregaste al carrito ${cantidadElegida} unidades de ${arrayProductos[idRef-1].nombre} a un total de $ ${precioTotal}`);
-        arrayProductos[idRef-1].restaStock(cantidadElegida);    
-
-        
+        if(iCompra<2){
+            iCarrito = 0;
+            precioTotal = cantidadElegida * arrayProductos[idRef-1].precio;
+            const comprado = new ProductoComprado(carrito.length+1, arrayProductos[idRef-1].nombre, cantidadElegida, precioTotal);
+            carrito.push(comprado);
+            alert(`Agregaste al carrito ${cantidadElegida} unidades de ${arrayProductos[idRef-1].nombre} a un total de $ ${precioTotal}`);
+            arrayProductos[idRef-1].restaStock(cantidadElegida);
+            $(`#mensajeCarrito`).hide();
+            $(`#mensajeCompra`).hide();
+            msjCarrito = document.getElementById('listaCompras');
+            msjCarrito.innerHTML = ' ';
+        }
+    }
+    function verCarrito(){
+        if(iCarrito == 0){
+            iCarrito = 1;
+            precioCarrito = 0;
+            $("#listaCompras").show();
+            if(carrito.length > 0){
+                $(`#listaCompras`).append(`<h6>Carrito: </h6>`); 
+                $(`#listaCompras`).append(`<ul id="listaProductos"></ul>`);
+                
+                for (itemsElegidos of carrito){
+                    precioCarrito += itemsElegidos.precio;
+                    $(`#listaProductos`).append(`<li>${itemsElegidos.nombre} x ${itemsElegidos.cantidad} uni - $${itemsElegidos.precio}</li>`)
+                }
+                $(`#listaCompras`).append(`<br><h6>Total: $${precioCarrito}</h6>`);
+                
+            }
+            $(`#mensajeCarrito`).append(`<h6>Tienes 0 productos en el carrito</h6>`);
+        }
     }
 
     function finalizarCompra(){
-        console.log(`Cerramos su pedido!`);
-        for (itemsElegidos of carrito){
-            productosCarrito += `\n - ${itemsElegidos.nombre} x ${itemsElegidos.cantidad} unidades `;
-            precioCarrito += itemsElegidos.precio;
-        }
         
-        alert (`Repasemos \n ${productosCarrito} \n por un total de $ ${precioCarrito}`);
+            if(carrito.length > 0 & iCompra<2){
+                iCompra = 2;
+                msjCarrito = document.getElementById('listaCompras');
+                msjCarrito.innerHTML = ' ';
+                $(`#btnTerminar`).hide();
+                $(`#btnCarrito`).hide();
+                $("#carrito").show();
+                precioCarrito = 0;
+                console.log(`Cerramos su pedido!`);
+                $(`#carrito`).append(`<h6>Cerramos tu pedido! </h6><br><h6>Repasemos, vas a llevar:</h6>`);
+                $(`#carrito`).append(`<ul id="listaFinal"></ul>`);
+                for (itemsElegidos of carrito){
+                    $(`#listaFinal`).append(`<li>${itemsElegidos.nombre} x ${itemsElegidos.cantidad} uni - $${itemsElegidos.precio}</li>`)
+                    precioCarrito += itemsElegidos.precio;
+                }
+    
+                $(`#carrito`).append(`<br><h6>Por un total de $ ${precioCarrito}</h6><br><button id='btnPagar' class="btn btn-secondary btn-sm">Pagar</button><br><br><button id='btnVaciar' class="btn btn-secondary btn-sm">Vaciar Carrito</button>`);
+                $(`#btnPagar`).click(pagarCompra);
+                $(`#btnVaciar`).click(vaciarCarrito);
+            }
+            if(iCompra<1){
+                $(`#mensajeCompra`).append(`<h6>Aun no seleccionaste productos</h6>`);
+                iCompra = 1;
+            }
     }    
+    function vaciarCarrito(){
+        msjCarrito = document.getElementById('listaCompras');
+        msjCarrito.innerHTML = ' ';
+        msjCompra = document.getElementById('carrito');
+        msjCompra.innerHTML = ' ';
+        carrito = [];
+        productoElegido;
+        cantidadElegida;
+        precioTotal;
 
+        iCarrito = 0;
+        iCompra = 0;
+        precioCarrito = 0;
+        cantidadProducto = 0;
+        msjCarritoVacio = document.getElementById('mensajeCarrito');
+        msjCarritoVacio.innerHTML = ' ';
+        msjCompraVacia = document.getElementById('mensajeCompra');
+        msjCompraVacia.innerHTML = ' ';
+        $(`#mensajeCarrito`).show();
+        $(`#mensajeCompra`).show();
+        $(`#btnTerminar`).show();
+        $(`#btnCarrito`).show();
+        
+    }
+    function pagarCompra(){
+        alert (`Pagaste un total de $ ${precioCarrito} \n ¡Gracias por tu compra!`);
+        vaciarCarrito();
+    }
     
     imprimirProductos();  
