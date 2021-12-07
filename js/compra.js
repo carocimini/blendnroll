@@ -187,4 +187,4 @@ let msjCompraVacia;
         vaciarCarrito();
     }
     
-    
+    imprimirProductos();  
