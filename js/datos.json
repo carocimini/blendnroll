@@ -1,5 +1,5 @@
 [
-    {"id":1,"nombre":"Tabaco Flandria Vainilla x 30gr", "categoria":"Tabaco", "precio":450, "peso":"30gr", "tamaño":0, "marca":"Flandria", "sabor":"Vainilla", "stock":10, "imagen":"Flandria Vainilla x 30gr.png"},
-    {"id":2,"nombre":"Tabaco Flandria Silver x 30gr", "categoria":"Tabaco", "precio":450, "peso":"30gr", "tamaño":0, "marca":"Flandria", "sabor":"Silver", "stock":10, "imagen":"Flandria Silver x 30gr.png"},
-    {"id":3,"nombre":"Tabaco Flandria ECO x 30gr", "categoria":"Tabaco", "precio":450, "peso":"30gr", "tamaño":0, "marca":"Flandria", "sabor":"Eco", "stock":10, "imagen":"Flandria Eco x 30gr.png"}
+    {"id":1,"nombre":"Tabaco Flandria Vainilla x 30gr", "categoria":"Tabaco", "precio":450, "peso":"30gr", "tamaño":0, "marca":"Flandria", "sabor":"Vainilla", "stock":10, "imagen":"/Flandria Vainilla x 30gr.png"},
+    {"id":2,"nombre":"Tabaco Flandria Silver x 30gr", "categoria":"Tabaco", "precio":450, "peso":"30gr", "tamaño":0, "marca":"Flandria", "sabor":"Silver", "stock":10, "imagen":"/Flandria Silver x 30gr.png"},
+    {"id":3,"nombre":"Tabaco Flandria ECO x 30gr", "categoria":"Tabaco", "precio":450, "peso":"30gr", "tamaño":0, "marca":"Flandria", "sabor":"Eco", "stock":10, "imagen":"/Flandria Eco x 30gr.png"}
 ]

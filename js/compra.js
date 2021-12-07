@@ -31,21 +31,22 @@ var arrayProductos =[];
 const URLJSON = "/blendnroll/js/datos.json";
 $.getJSON(URLJSON, function(respuesta, estado){
     if(estado === "success"){
-        alert("Entro bien");
         let misDatos = respuesta;
         for(const dato of misDatos){
-            const producto = new Producto(id=`${dato.id}`,nombre=`${dato.nombre}`, categoria=`${dato.categoria}`, precio=`${dato.precio}`, peso=`${dato.peso}`, tamaño=`${dato.tamaño}`, marca=`${dato.marca}`, sabor=`${dato.sabor}`, stock=`${dato.stock}`, imagen=`imagenes/img-tabacos/${dato.imagen}`);
+            const producto = new Producto(id=`${dato.id}`,nombre=`${dato.nombre}`, categoria=`${dato.categoria}`, precio=`${dato.precio}`, peso=`${dato.peso}`, tamaño=`${dato.tamaño}`, marca=`${dato.marca}`, sabor=`${dato.sabor}`, stock=`${dato.stock}`, imagen=`/blendnroll/imagenes/img-tabacos${dato.imagen}`);
             arrayProductos.push(producto);
+            console.log = (producto);
         }
+        imprimirProductos();  
     }
 });
-/*Esto que esta debajo lo estoy tratando de reemplazar por Ajax*/
-/* const producto1 = new Producto(id=1,nombre="Tabaco Flandria Vainilla x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Vainilla", 10, imagen="imagenes/img-tabacos/Flandria Vainilla x 30gr.png");
+/*Esto que esta debajo lo estoy tratando de reemplazar por Ajax
+const producto1 = new Producto(id=1,nombre="Tabaco Flandria Vainilla x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Vainilla", 10, imagen="imagenes/img-tabacos/Flandria Vainilla x 30gr.png");
 const producto2 = new Producto(id=2,nombre="Tabaco Flandria Silver x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Silver", 10, imagen="imagenes/img-tabacos/Flandria Silver x 30gr.png");
 const producto3 = new Producto(id=3,nombre="Tabaco Flandria ECO x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Eco", 10, imagen="imagenes/img-tabacos/Flandria Eco x 30gr.png");
 var arrayProductos = [producto1, producto2, producto3];
 const guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
-guardarLocal("listaProductos", JSON.stringify(arrayProductos)); */
+guardarLocal("listaProductos", JSON.stringify(arrayProductos));*/
 $(`#filtros`).append(`<button id='btnCarrito' class="btn btn-dark">Ver Carrito</button><article id="mensajeCarrito" style="color:white;background-color: black"></article><br><br><button id='btnTerminar' class="btn btn-dark">Finalizar</button><article id="mensajeCompra" style="color:white;background-color: black"></article>`);
 $(`#btnTerminar`).click(finalizarCompra);
 $(`#btnCarrito`).click(verCarrito);
@@ -119,15 +120,14 @@ let msjCompraVacia;
             if(carrito.length > 0){
                 $(`#listaCompras`).append(`<h6>Carrito: </h6>`); 
                 $(`#listaCompras`).append(`<ul id="listaProductos"></ul>`);
-                
                 for (itemsElegidos of carrito){
                     precioCarrito += itemsElegidos.precio;
                     $(`#listaProductos`).append(`<li>${itemsElegidos.nombre} x ${itemsElegidos.cantidad} uni - $${itemsElegidos.precio}</li>`)
                 }
                 $(`#listaCompras`).append(`<br><h6>Total: $${precioCarrito}</h6>`);
                 
-            }
-            $(`#mensajeCarrito`).append(`<h6>Tienes 0 productos en el carrito</h6>`);
+            }else{$(`#mensajeCarrito`).append(`<h6>Tienes 0 productos en el carrito</h6>`);}
+            
         }
     }
 
@@ -187,4 +187,4 @@ let msjCompraVacia;
         vaciarCarrito();
     }
     
-    imprimirProductos();  
+    
