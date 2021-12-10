@@ -28,14 +28,13 @@ class ProductoComprado{
 /*Esto a cuntinuación reemplaza a lo que esta comentado debajo*/
 var arrayProductos =[];
 
-const URLJSON = "/blendnroll/js/datos.json";
+const URLJSON = "js/datos.json";
 $.getJSON(URLJSON, function(respuesta, estado){
     if(estado === "success"){
         let misDatos = respuesta;
         for(const dato of misDatos){
-            const producto = new Producto(id=`${dato.id}`,nombre=`${dato.nombre}`, categoria=`${dato.categoria}`, precio=`${dato.precio}`, peso=`${dato.peso}`, tamaño=`${dato.tamaño}`, marca=`${dato.marca}`, sabor=`${dato.sabor}`, stock=`${dato.stock}`, imagen=`/blendnroll/imagenes/img-tabacos${dato.imagen}`);
+            const producto = new Producto(id=`${dato.id}`,nombre=`${dato.nombre}`, categoria=`${dato.categoria}`, precio=`${dato.precio}`, peso=`${dato.peso}`, tamaño=`${dato.tamaño}`, marca=`${dato.marca}`, sabor=`${dato.sabor}`, stock=`${dato.stock}`, imagen=`${dato.imagen}`);
             arrayProductos.push(producto);
-            console.log = (producto);
         }
         imprimirProductos();  
     }
