@@ -25,7 +25,7 @@ class ProductoComprado{
         this.precio = precio;
     }
 }
-/*Esto a cuntinuación reemplaza a lo que esta comentado debajo*/
+
 var arrayProductos =[];
 
 const URLJSON = "js/datos.json";
@@ -39,13 +39,7 @@ $.getJSON(URLJSON, function(respuesta, estado){
         imprimirProductos();  
     }
 });
-/*Esto que esta debajo lo estoy tratando de reemplazar por Ajax
-const producto1 = new Producto(id=1,nombre="Tabaco Flandria Vainilla x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Vainilla", 10, imagen="imagenes/img-tabacos/Flandria Vainilla x 30gr.png");
-const producto2 = new Producto(id=2,nombre="Tabaco Flandria Silver x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Silver", 10, imagen="imagenes/img-tabacos/Flandria Silver x 30gr.png");
-const producto3 = new Producto(id=3,nombre="Tabaco Flandria ECO x 30gr", categoria="Tabaco", 450, peso="30gr", 0, marca="Flandria", sabor="Eco", 10, imagen="imagenes/img-tabacos/Flandria Eco x 30gr.png");
-var arrayProductos = [producto1, producto2, producto3];
-const guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
-guardarLocal("listaProductos", JSON.stringify(arrayProductos));*/
+
 $(`#filtros`).append(`<button id='btnCarrito' class="btn btn-dark">Ver Carrito</button><article id="mensajeCarrito" style="color:white;background-color: black"></article><br><br><button id='btnTerminar' class="btn btn-dark">Finalizar</button><article id="mensajeCompra" style="color:white;background-color: black"></article>`);
 $(`#btnTerminar`).click(finalizarCompra);
 $(`#btnCarrito`).click(verCarrito);
@@ -54,7 +48,7 @@ function imprimirProductos(){
     let contador = arrayProductos.length;
     for (let i = 0; i <= contador; i++){
         $("#seccionProductos").append(`<article class="work container">
-        <a href='pageproduct.html'> <img src='${arrayProductos[i].imagen}'>
+        <a id='link${arrayProductos[i].id}' href='pageproduct.html'> <img src='${arrayProductos[i].imagen}'>
         <h3>${arrayProductos[i].nombre}</h3></a>` + `<h4>Precio: $${arrayProductos[i].precio}</h4>` + `<button id='btn${arrayProductos[i].id}'>Comprar</button>` 
         + `<select id='select${arrayProductos[i].id}'>
         <option id='cant1' type="number" value='1'>1</option>
@@ -68,7 +62,6 @@ function imprimirProductos(){
         <option id='cant9' type="number" value='9'>9</option>
         <option id='cant10' type="number" value='10'>10</option>
     </select></article>`);
-    
             
     $(`#btn${arrayProductos[i].id}`).click(function(){
             idRef = arrayProductos[i].id;
